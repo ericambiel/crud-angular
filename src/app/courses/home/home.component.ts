@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourse } from '../models/ICourse';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,13 @@ import { ICourse } from '../models/ICourse';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  courses: ICourse[] = [{ id: '1', name: 'Angular', category: 'Front-end' }];
+  courses: ICourse[] = [];
   // Columns will be displayed, need to be the same of html matColumnDef.
   displayedColumns = ['name', 'category'];
 
-  constructor() {}
+  constructor(private coursesService: CoursesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.courses = this.coursesService.list();
+  }
 }
