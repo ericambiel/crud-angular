@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
 import { ICourse } from '../models/ICourse';
 import { HttpClient } from '@angular/common/http';
+import { first, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
+  private readonly API = '/assets/mocks/courses.json';
+
   constructor(private httpClient: HttpClient) {}
 
-  list(): ICourse[] {
-    return [{ id: '1', name: 'Angular', category: 'Front-end' }];
+  list(): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>(this.API).pipe(
+      first() // Take first request from route.
+      // take(1), // Take first request from route. (Same bellow)
+      // tap(courses => console.log(courses)) // Only to debug
+    );
   }
 }
