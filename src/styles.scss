@@ -10,13 +10,13 @@ $custom-app-primary: mat.define-palette(mat.$blue-palette);
 $custom-app-accent: mat.define-palette(mat.$indigo-palette, A200, A400, 700);
 
 // The "warn" palette is optional and defaults to red if not specified.
-$custom-app-warn: mat.define-palette(mat.$blue-palette);
+$custom-app-warn: mat.define-palette(mat.$red-palette);
 
 $custom-theme: mat.define-light-theme((
   color: (
     primary: $custom-app-primary,
     accent: $custom-app-accent,
-    warn: $custom-app-warn
+    warn: $custom-app-warn, // Can be error too.
   )
 ));
 

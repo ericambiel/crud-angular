@@ -15,7 +15,7 @@ export class CoursesService {
     return this.httpClient.get<ICourse[]>(this.API).pipe(
       first(), // Take first request from route.
       // take(1), // Take first request from route. (Same bellow)
-      delay(5000) // Only to debug, to show spinner
+      delay(1000) // Only to debug, to show spinner
       // tap(courses => console.log(courses)) // Only to debug, to show JSON at console
     );
   }
