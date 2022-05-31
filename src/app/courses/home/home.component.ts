@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  courses: Observable<ICourse[]>;
+  courses$: Observable<ICourse[]>;
   // Columns will be displayed, need to be the same of html matColumnDef.
   displayedColumns = ['name', 'category'];
 
   constructor(private coursesService: CoursesService) {
-    this.courses = this.coursesService.list();
+    this.courses$ = this.coursesService.list();
   }
 
   ngOnInit(): void {}
