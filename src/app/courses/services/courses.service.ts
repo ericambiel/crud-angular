@@ -7,7 +7,9 @@ import { first, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CoursesService {
-  private readonly API = '/assets/mocks/courses.json';
+  // Use this without proxy
+  // private readonly API = 'http://localhost:8080/api/courses';
+  private readonly API = '/api/courses';
 
   constructor(private httpClient: HttpClient) {}
 
